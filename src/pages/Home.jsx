@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/mystyles.scss";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { CgDanger } from "react-icons/cg";
@@ -7,55 +7,76 @@ import Card1 from "./Card1";
 import { FaAngleUp } from "react-icons/fa";
 import { FaAngleRight } from "react-icons/fa";
 import Card2 from "./Card2";
+import { useMediaQuery } from "react-responsive";
+import { BsCaretDownFill } from "react-icons/bs";
+import { BsCaretUpFill } from "react-icons/bs";
+import { BsCaretRightFill } from "react-icons/bs";
 
 const Home = () => {
+  const isMobile = useMediaQuery({ maxWidth: 820 });
+  const [showLinks, setShowLinks] = useState(false);
 
   const data = [
-     {
-       id:'1',
-       img1:'./assets/image1.svg',
-       heading:'WixPro 72-Inch Responsive Website Builder',
-       text1:'- Comprehensive Digital Platform Creation Tool, Streamlined Design Interface for Professional Websites and Online Stores (Black/Blue)',
-       text2:'[What You Get]: Receive the WixPro website builder suite, access to premium design templates, an extensive library of widgets and apps, and detailed step-by-step guides.',
-       rating:'9.8',
-       remark:'exceptional',
-       star:'./assets/image2.svg',
-       offer:'Best choice'
-     },
-     {
-      id:'2',
-      img1:'./assets/image1.svg',
-      heading:'SiteCraft 68-Inch Ultimate Web Design Studio',
-      text1:'- Advanced Site Creation Toolkit, Intuitive Drag-and-Drop Editor for Dynamic Websites and E-commerce Platforms (Green/White)',
-      text2:'[What You Get]: Gain access to the SiteCraft design studio, featuring a robust selection of design elements, SEO optimization tools, and e-commerce integrations.',
-      rating:'9.5',
-      remark:'excellent',
-      star:'./assets/image3.svg',
-      offer:'Best Value'
-     },
-     {
-      id:'3',
-      img1:'./assets/image1.svg',
-      heading:'WixPro 72-Inch Responsive Website Builder',
-      text1:'- Comprehensive Digital Platform Creation Tool, Streamlined Design Interface for Professional Websites and Online Stores (Black/Blue)',
-      text2:'[What You Get]: Receive the WixPro website builder suite, access to premium design templates, an extensive library of widgets and apps, and detailed step-by-step guides.',
-      rating:'9.8',
-      remark:'exceptional',
-      star:'./assets/image2.svg',
-      offer:''
+    {
+      id: "1",
+      img1: "./assets/image1.svg",
+      heading: "WixPro 72-Inch Responsive Website Builder",
+      text1:
+        "- Comprehensive Digital Platform Creation Tool, Streamlined Design Interface for Professional Websites and Online Stores (Black/Blue)",
+      text2:
+        "[What You Get]: Receive the WixPro website builder suite, access to premium design templates, an extensive library of widgets and apps, and detailed step-by-step guides.",
+      rating: "9.8",
+      remark: "exceptional",
+      star: "./assets/image2.svg",
+      offer: "Best choice",
     },
     {
-      id:'4',
-      img1:'./assets/image1.svg',
-      heading:'SiteCraft 68-Inch Ultimate Web Design Studio',
-      text1:'- Advanced Site Creation Toolkit, Intuitive Drag-and-Drop Editor for Dynamic Websites and E-commerce Platforms (Green/White)',
-      text2:'[What You Get]: Gain access to the SiteCraft design studio, featuring a robust selection of design elements, SEO optimization tools, and e-commerce integrations.',
-      rating:'9.5',
-      remark:'exceptional',
-      star:'./assets/image3.svg',
-      offer:'Best Value'
-     },
-  ]
+      id: "2",
+      img1: "./assets/image1.svg",
+      heading: "SiteCraft 68-Inch Ultimate Web Design Studio",
+      text1:
+        "- Advanced Site Creation Toolkit, Intuitive Drag-and-Drop Editor for Dynamic Websites and E-commerce Platforms (Green/White)",
+      text2:
+        "[What You Get]: Gain access to the SiteCraft design studio, featuring a robust selection of design elements, SEO optimization tools, and e-commerce integrations.",
+      rating: "9.5",
+      remark: "excellent",
+      star: "./assets/image3.svg",
+      offer: "Best Value",
+    },
+    {
+      id: "3",
+      img1: "./assets/image1.svg",
+      heading: "WixPro 72-Inch Responsive Website Builder",
+      text1:
+        "- Comprehensive Digital Platform Creation Tool, Streamlined Design Interface for Professional Websites and Online Stores (Black/Blue)",
+      text2:
+        "[What You Get]: Receive the WixPro website builder suite, access to premium design templates, an extensive library of widgets and apps, and detailed step-by-step guides.",
+      rating: "9.8",
+      remark: "exceptional",
+      star: "./assets/image2.svg",
+      offer: "",
+    },
+    {
+      id: "4",
+      img1: "./assets/image1.svg",
+      heading: "SiteCraft 68-Inch Ultimate Web Design Studio",
+      text1:
+        "- Advanced Site Creation Toolkit, Intuitive Drag-and-Drop Editor for Dynamic Websites and E-commerce Platforms (Green/White)",
+      text2:
+        "[What You Get]: Gain access to the SiteCraft design studio, featuring a robust selection of design elements, SEO optimization tools, and e-commerce integrations.",
+      rating: "9.5",
+      remark: "exceptional",
+      star: "./assets/image3.svg",
+      offer: "",
+    },
+  ];
+
+  const handleLinks = () => {
+    setShowLinks((prev) => !prev);
+  };
+
+  const handleLinks1 = () => {};
+
   return (
     <div className="section">
       <div className="header">
@@ -80,26 +101,53 @@ const Home = () => {
         </div>
       </div>
       <div className="links">
-        <ul>
-          <li>
-            <a href="#">Tools</a>
-          </li>
-          <li>
-            <a href="#">AWS Builder</a>
-          </li>
-          <li>
-            <a href="#">Start Build</a>
-          </li>
-          <li>
-            <a href="#">Build Supplies</a>
-          </li>
-          <li>
-            <a href="#">Tooling</a>
-          </li>
-          <li>
-            <a href="#">Blue Hosting</a>
-          </li>
-        </ul>
+        {isMobile ? (
+          <>
+            <button className="dropdwn-btn" onClick={handleLinks}>
+              All Tabs{" "}
+              <span>
+                {!showLinks ? <BsCaretDownFill /> : <BsCaretUpFill />}
+              </span>
+            </button>
+            {showLinks ? (
+              <>
+                <div class="dropdown-content">
+                  <a href="#">Tools</a>
+                  <a href="#">AWS Builder</a>
+                  <a href="#">Start Build</a>
+                  <a href="#">Build Supplies</a>
+                  <a href="#">Tooling</a>
+                  <a href="#">Blue Hosting</a>
+                </div>
+              </>
+            ) : (
+              <></>
+            )}
+          </>
+        ) : (
+          <>
+            <ul>
+              <li>
+                <a href="#">Tools</a>
+              </li>
+              <li>
+                <a href="#">AWS Builder</a>
+              </li>
+              <li>
+                <a href="#">Start Build</a>
+              </li>
+              <li>
+                <a href="#">Build Supplies</a>
+              </li>
+              <li>
+                <a href="#">Tooling</a>
+              </li>
+              <li>
+                <a href="#">Blue Hosting</a>
+              </li>
+            </ul>
+          </>
+        )}
       </div>
       <div className="links1">
         <ul>
@@ -133,11 +181,9 @@ const Home = () => {
         </ul>
       </div>
       <div className="cards">
-        {
-          data.map((item,idx)=>(
-            <Card1 key={idx} item={item} />
-          ))
-        }
+        {data.map((item, idx) => (
+          <Card1 key={idx} item={item} />
+        ))}
       </div>
       <div className="hotdeals">
         <h1>Related deals you might like for</h1>
