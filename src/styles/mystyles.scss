@@ -176,13 +176,12 @@ nav {
   }
   .rating {
     width: 23%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin: auto;
-    > div {
+    margin: 2rem;
+    .top {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -373,6 +372,7 @@ nav {
       margin: auto;
       border: none;
       background-color: #F2F4F7;
+      cursor: pointer;
     }
     .dropdown-content{
       width: 80%;
@@ -382,14 +382,15 @@ nav {
       text-align: center;
       gap: .2rem;
       padding: 1rem;
-      // background-color: red;
+      background-color: #4b5665;
       a{
         text-decoration: none;
         font-size: 18px;
-        color: #1b88f4;
+        color: #ffffff;
         letter-spacing: 1.5px;
         padding: 14px ;
         border-radius: 10px;
+        font-weight: 600;
         &:hover{
           background-color: rgba(0, 0, 0, 0.3);
         }
@@ -589,7 +590,7 @@ nav {
       top: 65px;
       right: 80px;
       border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
       ul{
         gap: .5rem;
         flex-direction: column;
@@ -647,7 +648,7 @@ nav {
         width: 80%;
         input{
           width: 70%;
-          pad: 12;
+          pad: 12px;
         }
       }
     }
@@ -672,6 +673,24 @@ nav {
 @media screen and (max-width: 480px) {
    .links1{
     display: none;
+   }
+   .section{
+    .option{
+       h1{
+        font-size: 1.3rem;
+       }
+       div{
+        width: 110%;
+        input{
+          width:60%;
+          padding: 8px
+        };
+        button{
+          font-size: small;
+          width: 90px;
+        }
+       }
+    }
    }
    .footer{
     flex-wrap: wrap;
