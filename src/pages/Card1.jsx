@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import { FaAngleDown } from "react-icons/fa6";
 import { GoTrophy } from "react-icons/go";
 import { FaCheckCircle } from "react-icons/fa";
+import {useMediaQuery} from 'react-responsive'
 
 const Card = ({ item, showDetail, setShowDetail }) => {
   const handleClick = (e) => {
     e.preventDefault();
     setShowDetail(!showDetail);
   };
+  const isMobile = useMediaQuery({maxWidth:820})
   return (
-    <div className="card1">
+    <div className="card1"  >
       <div className="image">
         <img src={item.img1} alt="" />
       </div>
@@ -55,7 +57,7 @@ const Card = ({ item, showDetail, setShowDetail }) => {
           <a href="">show more</a> <FaAngleDown className="icon" />
         </div>
       </div>
-      <div className="rating">
+      <div className="rating" style={!isMobile ? { height: '400px' } : {}}>
         <div className="top">
           <h1>{item.rating}</h1>
           <p>{item.remark}</p>
